@@ -8,8 +8,8 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [inputLanguage, setInputLanguage] = useState<string>('JavaScript');
-  const [outputLanguage, setOutputLanguage] = useState<string>('Python');
+  const [inputLanguage, setInputLanguage] = useState<string>('English');
+  const [outputLanguage, setOutputLanguage] = useState<string>('Spanish');
   const [inputCode, setInputCode] = useState<string>('');
   const [outputCode, setOutputCode] = useState<string>('');
   const [model, setModel] = useState<OpenAIModel>('gpt-3.5-turbo');
@@ -138,9 +138,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex h-full min-h-screen flex-col items-center bg-[#0E1117] px-4 pb-20 text-neutral-200 sm:px-10">
+      <div className="flex h-full min-h-screen flex-col items-center bg-[#524f4f] px-4 pb-20 text-neutral-200 sm:px-10">
         <div className="mt-10 flex flex-col items-center justify-center sm:mt-20">
-          <div className="text-4xl font-bold">AI Code Translator</div>
+          <div className="text-4xl font-bold">AI Language Translator</div>
         </div>
 
         <div className="mt-6 text-center text-sm">
@@ -151,7 +151,7 @@ export default function Home() {
           <ModelSelect model={model} onChange={(value) => setModel(value)} />
 
           <button
-            className="w-[140px] cursor-pointer rounded-md bg-violet-500 px-4 py-2 font-bold hover:bg-violet-600 active:bg-violet-700"
+            className="w-[140px] cursor-pointer rounded-md bg-blue-500 px-4 py-2 font-bold hover:bg-blue-600 active:bg-blue-700"
             onClick={() => handleTranslate()}
             disabled={loading}
           >
@@ -169,7 +169,7 @@ export default function Home() {
 
         <div className="mt-6 flex w-full max-w-[1200px] flex-col justify-between sm:flex-row sm:space-x-4">
           <div className="h-100 flex flex-col justify-center space-y-2 sm:w-2/4">
-            <div className="text-center text-xl font-bold">Input</div>
+            <div className="text-center text-xl font-bold">Translation Input</div>
 
             <LanguageSelect
               language={inputLanguage}
@@ -202,7 +202,7 @@ export default function Home() {
             )}
           </div>
           <div className="mt-8 flex h-full flex-col justify-center space-y-2 sm:mt-0 sm:w-2/4">
-            <div className="text-center text-xl font-bold">Output</div>
+            <div className="text-center text-xl font-bold">Translated Output</div>
 
             <LanguageSelect
               language={outputLanguage}
